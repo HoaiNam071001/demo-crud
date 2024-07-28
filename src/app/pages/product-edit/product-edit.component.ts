@@ -19,7 +19,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './product-edit.component.scss',
 })
 export class ProductEditComponent implements OnInit {
-  productId!: number;
+  productId!: string;
   product!: Product;
 
   form!: UntypedFormGroup;
@@ -35,7 +35,7 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.productId = +(params.get('id') || 0);
+      this.productId = params.get('id') || '';
       this.onSearch();
     });
     this.createFrom();
@@ -59,14 +59,14 @@ export class ProductEditComponent implements OnInit {
   createFrom() {
     this.form = this.fb.group({
       name: [this.product?.name, [Validators.required]],
-      description: [this.product?.description, [Validators.required]],
+      description: [this.product?.description],
       price: [this.product?.price, [Validators.required]],
-      imageUrl: [this.product?.imageUrl, [Validators.required]],
+      imageUrl: [this.product?.imageUrl || 'assets/img/images.png', [Validators.required]],
       quantity: [
         this.product?.quantity,
         [Validators.required, Validators.min(1)],
       ],
-      thumnail: [this.product?.thumnail, [Validators.required]],
+      thumnail: [this.product?.thumnail || 'assets/img/images.png', [Validators.required]],
     });
   }
 
@@ -91,7 +91,7 @@ export class ProductEditComponent implements OnInit {
       (res) => {
         this.loading = false;
 
-        this.router.navigate([`/product${res.id}`]);
+        this.router.navigate([`/product/${res.id}`]);
       },
       (error) => {
         this.loading = false;
@@ -108,7 +108,7 @@ export class ProductEditComponent implements OnInit {
       .subscribe(
         (res) => {
           this.loading = false;
-          this.router.navigate([`/product${res.id}`]);
+          this.router.navigate([`/product/${res.id}`]);
         },
         (error) => {
           this.loading = false;

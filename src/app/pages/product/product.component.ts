@@ -4,7 +4,7 @@ import { ProductService } from '../../shared/_services/product.service';
 import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SearchInputComponent } from '../../shared/_components/search-input/search-input.component';
 import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { RangeComponent } from '../../shared/_components/range/range.component';
@@ -20,7 +20,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     SearchInputComponent,
     ReactiveFormsModule,
     RangeComponent,
-    MatPaginatorModule
+    MatPaginatorModule,
+    RouterModule,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',

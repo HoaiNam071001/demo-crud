@@ -9,15 +9,15 @@ export const routes: Routes = [
     path: 'product',
     children: [
       {
+        path: 'create',
+        component: ProductEditComponent,
+      },
+      {
         path: ':id',
         component: ProductDetailComponent,
       },
       {
         path: ':id/edit',
-        component: ProductEditComponent,
-      },
-      {
-        path: 'create',
         component: ProductEditComponent,
       },
       {

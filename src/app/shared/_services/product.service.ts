@@ -21,15 +21,15 @@ export class ProductService {
     return this.http.post<Product>(`${environment.application.api}/products/`, product);
   }
 
-  put(id: number, product: Product): Observable<Product> {
+  put(id: string, product: Product): Observable<Product> {
     return this.http.put<Product>(`${environment.application.api}/products/${id}`, product);
   }
 
-  delete(id: number): Observable<void> {
+  delete(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.application.api}/products/${id}`);
   }
 
-  getById(id: number): Observable<Product> {
+  getById(id: string): Observable<Product> {
     return this.http.get<Product>(`${environment.application.api}/products/${id}`);
   }
 }

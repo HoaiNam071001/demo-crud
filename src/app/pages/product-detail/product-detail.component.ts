@@ -23,7 +23,7 @@ import { ConfirmComponent } from '../../shared/_components/confirm/confirm.compo
 })
 export class ProductDetailComponent implements OnInit {
 
-  productId!: number;
+  productId!: string;
   product!: Product;
 
   constructor(
@@ -36,8 +36,7 @@ export class ProductDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.productId = +(params.get('id') || 0);
-      console.log(this.productId);
+      this.productId = params.get('id') || '';
       this.onSearch();
     });
 
