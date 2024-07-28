@@ -1,0 +1,93 @@
+<form class="max-w-xl mx-auto p-3" [formGroup]="form">
+  <div class="mb-5">
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+      >Name</label
+    >
+    <input
+      id="name"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      placeholder=""
+      formControlName="name"
+    />
+  </div>
+
+  <div class="mb-5 grid gap-1 grid-cols-2">
+    <div>
+      <label for="thumnail" class="block mb-2 text-sm font-medium text-gray-900"
+        >Thumnail</label
+      >
+      <input
+        id="thumnail"
+        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="name@flowbite.com"
+        formControlName="thumnail"
+      />
+    </div>
+    <div class="ml-3 ">
+      <img class="w-full rounded-lg" [src]="form.get('thumnail')?.value" alt="product image" />
+    </div>
+  </div>
+
+  <div class="mb-5 grid gap-1 grid-cols-2">
+    <div>
+      <label for="imageUrl" class="block mb-2 text-sm font-medium text-gray-900"
+        >Image</label
+      >
+      <input
+        id="imageUrl"
+        class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="name@flowbite.com"
+        formControlName="imageUrl"
+      />
+    </div>
+    <div class="ml-3 ">
+      <img class="w-full rounded-lg" [src]="form.get('imageUrl')?.value" alt="product image" />
+    </div>
+  </div>
+
+
+  <div class="mb-5">
+    <label for="price" class="block mb-2 text-sm font-medium text-gray-900">
+      Price</label
+    >
+    <input
+      id="price"
+      type="number"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      formControlName="price"
+    />
+  </div>
+  <div class="mb-5">
+    <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900"
+      >Quantity</label
+    >
+    <input
+      id="quantity"
+      type="number"
+      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+      formControlName="quantity"
+    />
+  </div>
+
+  <div class="mb-5">
+    <label
+      for="description"
+      class="block mb-2 text-sm font-medium text-gray-900"
+      >Description</label
+    >
+    <textarea
+      id="description"
+      rows="4"
+      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+      formControlName="description"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    (click)="onSubmit()"
+    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+  >
+    Update
+  </button>
+</form>

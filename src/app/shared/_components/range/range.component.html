@@ -1,0 +1,14 @@
+<div class="flex items-center">
+  <label
+    for="small-range"
+    class="block text-sm font-medium text-gray-900 mr-3"
+    >{{ title }}</label
+  >
+  <input
+    id="small-range"
+    type="range"
+    [formControl]="inputCtrl"
+    class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer range-sm"
+  />
+  <div class="ml-2">${{ (inputCtrl.value * max)/100 }}</div>
+</div>

@@ -1,0 +1,64 @@
+<div>
+  <div class="mb-3 mx-3">
+    <div class="mb-3">
+      <app-search-input (search)="onSearchText($event)"></app-search-input>
+    </div>
+
+    <div class="flex items-center sm:flex-row flex-col">
+      <app-range (search)="onChangeFilter($event)"></app-range>
+
+      <div class="ml-auto">
+        <button mat-button [matMenuTriggerFor]="menu" class="btn">
+          Xếp theo {{ sortOption ? ": " + sortOption.viewValue : "" }}
+        </button>
+        <mat-menu #menu="matMenu">
+          @for (option of sortOptions; track option) {
+          <button mat-menu-item (click)="onSort(option)">
+            {{ option.viewValue }}
+          </button>
+          }
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="grid gap-4 grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+  >
+    @for (product of products; track product) {
+    <div
+      class="w-full cursor-pointer flex flex-col mx-auto max-w-sm bg-white border border-gray-200 rounded-lg border hover:border-sky-300 ease-in-out duration-300 hover:shadow hover:shadow-md"
+      (click)="onNavigate(product)"
+    >
+      <img
+        class="rounded-t-lg w-full"
+        [src]="product.thumnail"
+        alt="product image"
+      />
+      <div class="px-5">
+        <span class="text-md font-semibold tracking-tight text-gray-900">
+          {{ product.name }}
+        </span>
+      </div>
+      <div class="px-5 pb-5 mt-auto">
+        <div class="flex items-center justify-between">
+          <span class="text-xl font-bold text-gray-900"
+            >${{ product.price | number }}</span
+          >
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <mat-paginator
+    #paginator
+    *ngIf="pageInfo"
+    (page)="onPage($event)"
+    [length]="pageInfo.items"
+    [hidePageSize]="true"
+    [pageSize]="10"
+    [pageIndex]="pageInfo.next - 2"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

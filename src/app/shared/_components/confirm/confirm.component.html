@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Confirm</h2>
+<mat-dialog-content>
+  {{ title }}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    mat-button
+    mat-dialog-close
+    class="bg-white mr-3 hover:bg-gray-500 text-gray-500 hover:text-white py-1 rounded font-semibold px-5 rounded-lg border border-gray-500 hover:shadow hover:shadow-lg"
+    >
+    No
+  </button>
+  <button
+    mat-button
+    [mat-dialog-close]="data.animal"
+    cdkFocusInitial
+    class="bg-sky-500 mr-4 hover:bg-sky-700 text-white py-1 rounded font-semibold px-5 rounded-lg border border-sky-500 hover:border-sky-700 hover:shadow hover:shadow-lg"
+  >
+    Ok
+  </button>
+</mat-dialog-actions>

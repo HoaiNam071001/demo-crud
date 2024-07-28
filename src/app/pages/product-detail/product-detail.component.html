@@ -1,0 +1,40 @@
+<div>
+  @if (product) {
+  <div class="grid gap-5 grid-cols-1 md:grid-cols-2 p-5">
+    <div>
+      <img class="w-full" [src]="product.imageUrl" alt="product image" />
+    </div>
+    <div>
+      <h5 class="text-xl font-semibold tracking-tight text-gray-900">
+        {{ product.name }}
+      </h5>
+      <p class="text-gray-600">
+        {{ product.description }}
+      </p>
+      <div>
+        <span class="text-3xl font-bold text-gray-900"
+          >${{ product.price | number }}</span
+        >
+      </div>
+
+      <div class="mt-2">Quanlity: {{ product.quantity }}</div>
+
+      <div class="my-5">
+        <button
+          class="bg-sky-500 mr-4 hover:bg-sky-700 text-white py-3 rounded font-semibold px-5 rounded-lg border border-sky-500 hover:border-sky-700 hover:shadow hover:shadow-lg"
+          (click)="onEdit()"
+        >
+          Edit
+        </button>
+
+        <button
+          class="bg-white hover:bg-rose-500 text-rose-500 hover:text-white py-3 rounded font-semibold px-5 rounded-lg border border-rose-500 hover:shadow hover:shadow-lg"
+          (click)="onDelete()"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+</div>
